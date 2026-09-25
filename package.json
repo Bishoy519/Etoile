@@ -3,12 +3,20 @@
   "version": "1.0.0",
   "private": true,
   "description": "Étoile Ballet Academy - Dual Portal Platform & NestJS Backend",
+  "workspaces": [
+    "client",
+    "admin",
+    "server"
+  ],
   "scripts": {
     "dev": "concurrently -n \"API,CLIENT,ADMIN\" -c \"cyan,magenta,yellow\" \"npm run dev:server\" \"npm run dev:client\" \"npm run dev:admin\"",
     "dev:client": "npm --prefix client run dev",
     "dev:admin": "npm --prefix admin run dev",
     "dev:server": "npm --prefix server run start:dev",
-    "build": "npm --prefix client run build && npm --prefix admin run build && npm --prefix server run build",
+    "build": "npm --prefix client run build && npm --prefix admin run build && npm --prefix server run build && rm -rf dist && mkdir -p dist && cp -r client/dist/* dist/ && mkdir -p dist/admin && cp -r admin/dist/* dist/admin/",
+    "build:client": "npm --prefix client run build",
+    "build:admin": "npm --prefix admin run build",
+    "build:server": "npm --prefix server run build",
     "test": "npm --prefix server run test",
     "docker:up": "docker compose up -d --build",
     "docker:down": "docker compose down",
