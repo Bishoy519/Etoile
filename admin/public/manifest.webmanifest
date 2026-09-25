@@ -1,0 +1,13 @@
+{
+  "name": "Étoile OS — Academy Command",
+  "short_name": "Étoile OS",
+  "description": "Academy management: check-in kiosk, CRM, POS, finance, WhatsApp.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0e1a",
+  "theme_color": "#0a0e1a",
+  "orientation": "any",
+  "icons": [
+    { "src": "/favicon.png", "sizes": "64x64", "type": "image/png", "purpose": "any" }
+  ]
+}

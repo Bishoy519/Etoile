@@ -1,0 +1,196 @@
+{
+  "branding": {
+    "name": "Étoile Ballet Academy",
+    "nameAr": "أكاديمية إيتوال للباليه",
+    "tagline": "Excellence in Classical and Contemporary Dance",
+    "taglineAr": "الريادة والتميز في فنون الباليه الكلاسيكي والرقص المعاصر",
+    "phone": "+20 2 2736 0000",
+    "email": "contact@etoile.eg",
+    "website": "https://etoile.eg",
+    "address": "Zamalek Main Campus & New Cairo Studio, Cairo, Egypt",
+    "addressAr": "فرع الزمالك الرئيسي وأستوديو التجمع الخامس، القاهرة، مصر",
+    "logoUrl": "/favicon.png",
+    "socials": {
+      "x": "https://x.com/etoileacademy",
+      "facebook": "https://facebook.com/etoileacademy",
+      "instagram": "https://instagram.com/etoileacademy",
+      "youtube": "https://youtube.com/etoileacademy"
+    }
+  },
+  "hero": {
+    "headlineLine1": "ÉTOILE",
+    "headlineLine2": "BALLET",
+    "headlineLine3": "ACADEMY",
+    "headlineLine1Ar": "أكاديمية",
+    "headlineLine2Ar": "إيتوال",
+    "headlineLine3Ar": "للباليه",
+    "subtitleLine1": "Excellence in Classical and",
+    "subtitleLine2": "Contemporary Dance",
+    "subtitleLine1Ar": "الريادة والتميز في فنون",
+    "subtitleLine2Ar": "الباليه الكلاسيكي والرقص المعاصر",
+    "ctaText": "Discover Our Academy",
+    "ctaTextAr": "اكتشف برامج الأكاديمية",
+    "bgImageUrl": "/hero-ballerina.jpg",
+    "title": "Étoile Ballet Academy Paris"
+  },
+  "programs": [
+    {
+      "id": "PROG-CLASSICAL",
+      "key": "classical",
+      "title": "Classical Ballet",
+      "titleAr": "الباليه الكلاسيكي",
+      "description": "Classical ballet is designed to cultivate professional poise, high discipline and classical technique.",
+      "descriptionAr": "تدريب تأسيسي كلاسيكي يبني أعلى درجات الانضباط الحركي والرشاقة الخالدة وفق المعايير العالمية.",
+      "bgImageUrl": "/hero-ballerina.jpg",
+      "ageGroup": "Ages 8 - 18+",
+      "schedule": "Mon, Wed, Fri (4:00 PM - 7:30 PM)",
+      "pricePerTerm": 480,
+      "features": [
+        "Vaganova & Paris Opéra syllabus alignment",
+        "Pointe work & Pas de Deux partnering",
+        "Annual Grand Théâtre repertoire performance"
+      ],
+      "featuresAr": [
+        "منهج فاجانوفا ومدرسة أوبرا باريس",
+        "تدريب البوانت والشراكة الثنائية",
+        "المشاركة في العرض السنوي على المسرح الكبير"
+      ]
+    },
+    {
+      "id": "PROG-CONTEMPORARY",
+      "key": "contemporary",
+      "title": "Contemporary Dance",
+      "titleAr": "الرقص المعاصر",
+      "description": "Contemporary dance fosters modern innovation and artistic excellence alongside classical tradition.",
+      "descriptionAr": "يوازن الرقص المعاصر بين التعبير الحر والأساليب الكلاسيكية التقليدية الصارمة لخلق فنان متكامل.",
+      "bgImageUrl": "/hero-ballerina.jpg",
+      "ageGroup": "Ages 12 - 20+",
+      "schedule": "Tue, Thu, Sat (5:00 PM - 8:00 PM)",
+      "pricePerTerm": 520,
+      "features": [
+        "Gaga movement & Cunningham technique",
+        "Fluid floorwork and choreographic creation",
+        "Guest residencies with European soloist directors"
+      ],
+      "featuresAr": [
+        "تقنيات حركة غاغا وكانينغهام",
+        "العمل الأرضي السلس والتأليف الحركي",
+        "ورش تدريبية مع مديري فرق أوروبية زائرين"
+      ]
+    },
+    {
+      "id": "PROG-YOUTH",
+      "key": "youth",
+      "title": "Youth Program",
+      "titleAr": "برنامج الناشئين",
+      "description": "Youth Program is designed to inspire young dancers with creative technique and early classical training.",
+      "descriptionAr": "يقدم للراقصين الصغار مهارات حركية أساسية وتدريباً هيكلياً آمناً بروح مرحة وغرس حب المسرح.",
+      "bgImageUrl": "/hero-ballerina.jpg",
+      "ageGroup": "Ages 4 - 11",
+      "schedule": "Sat, Sun (10:00 AM - 1:00 PM)",
+      "pricePerTerm": 260,
+      "features": [
+        "Creative musicality and anatomical posture safety",
+        "Early turnout conditioning without joint strain",
+        "Winter Revelry Nutcracker company participation"
+      ],
+      "featuresAr": [
+        "تطوير الحس الإيقاعي وسلامة المحاذاة الجسدية",
+        "تأسيس المرونة السليمة دون إجهاد المفاصل",
+        "المشاركة في عرض كسارة البندق الشتوي للناشئين"
+      ]
+    }
+  ],
+  "faculty": [
+    {
+      "id": "FAC-001",
+      "name": "Madame Elena Rostova",
+      "nameAr": "مدام إيلينا روستوفا",
+      "role": "Artistic Director & Paris Opéra Soliste",
+      "roleAr": "المديرة الفنية وسوليست سابقة في أوبرا باريس",
+      "badge": "Étoile",
+      "bio": "25 years of stage mastery interpreting Petipa, Balanchine, and MacMillan repertoire across Europe.",
+      "bioAr": "25 عاماً من الإبداع المسرحي في تجسيد روائع بيتيبا وبلانشين وماكميلان على أكبر مسارح أوروبا.",
+      "photoUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80",
+      "active": true
+    },
+    {
+      "id": "FAC-002",
+      "name": "Julian Moreau",
+      "nameAr": "جوليان مورو",
+      "role": "Head of Contemporary Movement",
+      "roleAr": "رئيس قسم الرقص والحركة المعاصرة",
+      "badge": "Soliste",
+      "bio": "Former Principal Soloist at Nederlands Dans Theater. Blends fluid floorwork with architectural alignment.",
+      "bioAr": "راقص أول سابق في مسرح الرقص الهولندي، يجمع بين انسيابية الحركة الأرضية ودقة البناء التعبيري.",
+      "photoUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+      "active": true
+    },
+    {
+      "id": "FAC-003",
+      "name": "Sofia Chen",
+      "nameAr": "صوفيا تشن",
+      "role": "Director of Youth Pedagogy",
+      "roleAr": "مديرة برامج تدريب وبيداغوجيا الناشئين",
+      "badge": "Youth Head",
+      "bio": "Royal Ballet Upper School alumna, specializing in child kinesiology and anatomical safety.",
+      "bioAr": "خريجة مدرسة الباليه الملكي العليا، متخصصة في علم حركة الأطفال وسلامة المحاذاة الجسدية.",
+      "photoUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80",
+      "active": true
+    }
+  ],
+  "performances": [
+    {
+      "id": "PERF-001",
+      "dates": "May 14–17, 2026",
+      "datesAr": "14–17 مايو 2026",
+      "venue": "Grand Théâtre",
+      "venueAr": "المسرح الكبير",
+      "title": "Swan Lake // Acts II & IV",
+      "titleAr": "بحيرة البجع // الفصلان الثاني والرابع",
+      "description": "Tchaikovsky's legendary score with authentic Petipa Ivanov staging and luminescent golden corps de ballet choreography.",
+      "descriptionAr": "موسيقى تشايكوفسكي الخالدة برؤية بيتيبا وإيفانوف الأصلية وأداء كور دي باليه مذهب ينبض بالروعة.",
+      "ctaText": "Inquire About Box Seats",
+      "ctaTextAr": "حجز مقاعد كبار الزوار",
+      "status": "upcoming"
+    },
+    {
+      "id": "PERF-002",
+      "dates": "July 22–25, 2026",
+      "datesAr": "22–25 يوليو 2026",
+      "venue": "Palais des Arts",
+      "venueAr": "قصر الفنون",
+      "title": "Chroma & Cadence Contemporary Gala",
+      "titleAr": "حفل كروما وكادانس للرقص المعاصر",
+      "description": "World premiere contemporary choreography pairing neoclassical geometry with minimalist chamber ensemble.",
+      "descriptionAr": "عرض أول عالمي يجمع بين هندسة الكلاسيكية الحديثة ومقطوعات موسيقية حية لفرقة الحجرة.",
+      "ctaText": "Inquire About Box Seats",
+      "ctaTextAr": "حجز مقاعد كبار الزوار",
+      "status": "upcoming"
+    },
+    {
+      "id": "PERF-003",
+      "dates": "Dec 18–23, 2026",
+      "datesAr": "18–23 ديسمبر 2026",
+      "venue": "Metropolitan Opera",
+      "venueAr": "دار أوبرا المتروبوليتان",
+      "title": "The Nutcracker: Winter Revelry",
+      "titleAr": "كسارة البندق: احتفالية الشتاء",
+      "description": "Featuring celebrated Youth and Pre-Professional companies in a breathtaking holiday spectacle of golden snow.",
+      "descriptionAr": "بمشاركة نجوم برامج الناشئين والمستوى قبل الاحترافي في استعراض عطلات ساحر يبهر الأنظار.",
+      "ctaText": "Inquire About Box Seats",
+      "ctaTextAr": "حجز مقاعد كبار الزوار",
+      "status": "upcoming"
+    }
+  ],
+  "notice": {
+    "enabled": true,
+    "title": "Spring Term Repertoire Auditions Open",
+    "titleAr": "بدء اختبارات أداء الموسم الربيعي",
+    "message": "Pre-Professional students may register for soloist audition slots at the front desk or via WhatsApp.",
+    "messageAr": "يمكن لطلاب المستوى قبل الاحترافي التسجيل لتجارب أداء الأدوار الفردية لدى الاستقبال أو عبر واتساب.",
+    "severity": "gold"
+  },
+  "footerLinks": [],
+  "lastUpdated": "2026-09-24T11:43:07.627Z"
+}

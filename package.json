@@ -1,0 +1,26 @@
+{
+  "name": "etoile-ballet-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Étoile Ballet Academy - Dual Portal Platform & NestJS Backend",
+  "scripts": {
+    "dev": "concurrently -n \"API,CLIENT,ADMIN\" -c \"cyan,magenta,yellow\" \"npm run dev:server\" \"npm run dev:client\" \"npm run dev:admin\"",
+    "dev:client": "npm --prefix client run dev",
+    "dev:admin": "npm --prefix admin run dev",
+    "dev:server": "npm --prefix server run start:dev",
+    "build": "npm --prefix client run build && npm --prefix admin run build && npm --prefix server run build",
+    "test": "npm --prefix server run test",
+    "docker:up": "docker compose up -d --build",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs -f",
+    "docker:backup": "mkdir -p backups && docker compose exec -T postgres pg_dump -U ${POSTGRES_USER:-root} ${POSTGRES_DB:-etoile} | gzip > backups/etoile-$(date +%Y%m%d-%H%M%S).sql.gz && echo \"Backup written to backups/\"",
+    "docker:restore": "echo 'Restore with: ./scripts/restore.sh backups/<file>.sql.gz --yes (local) or gunzip -c backups/<file>.sql.gz | docker compose exec -T postgres psql -U ${POSTGRES_USER:-root} ${POSTGRES_DB:-etoile}'",
+    "backup": "bash scripts/backup.sh",
+    "backup:cron": "(crontab -l 2>/dev/null; echo '17 2 * * * cd /Users/bishoy/Desktop/Etoile && bash scripts/backup.sh 14 >> backups/cron.log 2>&1') | crontab -",
+    "nightly": "npm --prefix server run cron:nightly",
+    "install:all": "npm install && npm --prefix client install && npm --prefix admin install && npm --prefix server install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

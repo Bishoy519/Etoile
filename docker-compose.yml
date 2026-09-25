@@ -1,0 +1,92 @@
+# ==============================================================================
+# 🩰 ÉTOILE BALLET ACADEMY & CONSERVATORY — DOCKER COMPOSE ORCHESTRATION
+# Services:
+#   1. postgres: PostgreSQL 16 Alpine Database
+#   2. api:      NestJS REST API Engine (Port 3001)
+#   3. client:   Student & Family Portal (Port 5173 -> Nginx 80)
+#   4. admin:    Conservatory Operations ERP (Port 5174 -> Nginx 80)
+# ==============================================================================
+
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: etoile-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-etoile}
+      POSTGRES_USER: ${POSTGRES_USER:-root}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-secret}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-root} -d ${POSTGRES_DB:-etoile}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 5s
+    networks:
+      - etoile-network
+
+  api:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: etoile-api
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      DATABASE_URL: postgresql://${POSTGRES_USER:-root}:${POSTGRES_PASSWORD:-secret}@postgres:5432/${POSTGRES_DB:-etoile}?schema=public
+      JWT_SECRET: ${JWT_SECRET:?JWT_SECRET is required - copy .env.docker.example to .env and set a long random value}
+      CORS_ORIGINS: "http://localhost:5173,http://localhost:5174,http://127.0.0.1:5173,http://127.0.0.1:5174,http://localhost:80,http://localhost"
+      AUTO_SEED: "true"
+    ports:
+      - "3001:3001"
+    healthcheck:
+      test: ["CMD-SHELL", "node -e \"require('http').get('http://localhost:3001/api/portal-content', (r) => { process.exit(r.statusCode === 200 ? 0 : 1); }).on('error', () => process.exit(1));\""]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    networks:
+      - etoile-network
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: etoile-client-portal
+    restart: unless-stopped
+    depends_on:
+      - api
+    ports:
+      - "5173:80"
+    networks:
+      - etoile-network
+
+  admin:
+    build:
+      context: ./admin
+      dockerfile: Dockerfile
+    container_name: etoile-admin-erp
+    restart: unless-stopped
+    depends_on:
+      - api
+    ports:
+      - "5174:80"
+    networks:
+      - etoile-network
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  etoile-network:
+    driver: bridge

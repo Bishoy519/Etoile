@@ -1,0 +1,785 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   ÉTOILE BALLET ACADEMY - GLASSMORPHISM DESIGN SYSTEM & LUXURY GOLD PALETTE
+   ========================================================================== */
+
+/* ── Animated Gradient Mesh Background ── */
+body {
+  background: #060810;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 20%, rgba(202, 168, 104, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 90% 80%, rgba(120, 80, 200, 0.05) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(60, 100, 180, 0.04) 0%, transparent 50%),
+    linear-gradient(180deg, #060810 0%, #0a0e18 50%, #080c14 100%);
+  pointer-events: none;
+}
+
+/* Floating Aurora Orbs — subtle moving light pools */
+body::after {
+  content: '';
+  position: fixed;
+  top: -20%;
+  left: -10%;
+  width: 140%;
+  height: 140%;
+  z-index: -1;
+  background:
+    radial-gradient(circle 400px at 15% 25%, rgba(202, 168, 104, 0.045) 0%, transparent 100%),
+    radial-gradient(circle 350px at 85% 15%, rgba(100, 140, 220, 0.035) 0%, transparent 100%),
+    radial-gradient(circle 300px at 70% 75%, rgba(180, 120, 200, 0.03) 0%, transparent 100%),
+    radial-gradient(circle 250px at 20% 80%, rgba(202, 168, 104, 0.03) 0%, transparent 100%);
+  animation: auroraFloat 20s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes auroraFloat {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(30px, -20px) scale(1.02); }
+  66%  { transform: translate(-20px, 15px) scale(0.98); }
+  100% { transform: translate(10px, -10px) scale(1.01); }
+}
+
+/* Typography directional adaptations */
+[dir="rtl"] {
+  font-family: 'Cairo', sans-serif;
+}
+
+[dir="ltr"] {
+  font-family: 'Montserrat', system-ui, sans-serif;
+}
+
+/* ==========================================================================
+   GLASSMORPHISM CORE UTILITIES
+   ========================================================================== */
+
+/* Primary Glass Surface — cards, panels, modals */
+.glass {
+  background: rgba(12, 15, 24, 0.55);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+/* Subtle Glass — lighter frost for nested elements */
+.glass-subtle {
+  background: rgba(16, 20, 32, 0.4);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Heavy Glass — headers, navigation, overlays */
+.glass-heavy {
+  background: rgba(8, 10, 16, 0.7);
+  backdrop-filter: blur(40px) saturate(1.6);
+  -webkit-backdrop-filter: blur(40px) saturate(1.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Gold-tinted Glass — for premium sections */
+.glass-gold {
+  background: rgba(12, 15, 24, 0.5);
+  backdrop-filter: blur(28px) saturate(1.5);
+  -webkit-backdrop-filter: blur(28px) saturate(1.5);
+  border: 1px solid rgba(202, 168, 104, 0.18);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 0 30px rgba(202, 168, 104, 0.03);
+}
+
+/* ==========================================================================
+   GOLD METALLIC TEXT & GRADIENTS (preserved)
+   ========================================================================== */
+
+.gold-text-gradient {
+  background: linear-gradient(135deg, #fff7d6 0%, #e2be68 45%, #9b7222 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-text-subtle {
+  background: linear-gradient(135deg, #fdf1c2 0%, #d4af37 60%, #aa7c11 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   LUXURY GOLD ACTION BUTTONS — WITH GLASS SHEEN
+   ========================================================================== */
+
+.gold-btn {
+  background: linear-gradient(180deg, #d3a74e 0%, #f6e298 45%, #b5832a 100%);
+  box-shadow:
+    0 0 25px rgba(226, 190, 104, 0.35),
+    0 4px 15px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 236, 173, 0.6);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gold-btn:hover {
+  filter: brightness(1.12);
+  box-shadow:
+    0 0 40px rgba(226, 190, 104, 0.55),
+    0 6px 20px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+.gold-btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.gold-btn-outline {
+  background: rgba(12, 15, 24, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 190, 104, 0.5);
+  color: #fdf1c2;
+  box-shadow: 0 0 15px rgba(226, 190, 104, 0.12);
+  transition: all 0.3s ease;
+}
+
+.gold-btn-outline:hover {
+  background: rgba(226, 190, 104, 0.15);
+  border-color: #fdf1c2;
+  box-shadow: 0 0 30px rgba(226, 190, 104, 0.3);
+  color: #fff;
+}
+
+/* Glassmorphism Pill Navigation */
+.hero-pill-nav {
+  border: 1px solid rgba(226, 190, 104, 0.28);
+  background: rgba(10, 13, 16, 0.7);
+  backdrop-filter: blur(28px) saturate(1.4);
+  -webkit-backdrop-filter: blur(28px) saturate(1.4);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 0 20px rgba(226, 190, 104, 0.04);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-pill-item {
+  position: relative;
+  font-family: 'Montserrat', system-ui, sans-serif;
+  color: #dcd2bd;
+  letter-spacing: 0.03em;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.hero-pill-item:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-0.5px);
+}
+
+.hero-pill-item.active {
+  color: #080a0b !important;
+  font-weight: 600;
+  background: linear-gradient(135deg, #f5eedc 0%, #caa868 100%) !important;
+  box-shadow: 0 0 16px rgba(226, 190, 104, 0.45);
+}
+
+.hero-pill-item.pill-cta {
+  background: rgba(226, 190, 104, 0.12);
+  border: 1px solid rgba(226, 190, 104, 0.35);
+  color: #f7eedc;
+  font-weight: 600;
+  box-shadow: 0 0 12px rgba(226, 190, 104, 0.15);
+}
+
+.hero-pill-item.pill-cta:hover {
+  background: rgba(226, 190, 104, 0.25);
+  border-color: rgba(226, 190, 104, 0.7);
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(226, 190, 104, 0.3);
+}
+
+/* Hero CTA Button */
+.gold-btn-hero {
+  background: linear-gradient(180deg, #dfb755 0%, #f6e298 50%, #b88629 100%);
+  border: 1px solid #ffecad;
+  box-shadow:
+    0 0 24px rgba(226, 190, 104, 0.4),
+    0 4px 16px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  color: #1a1202;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gold-btn-hero:hover {
+  filter: brightness(1.1);
+  box-shadow:
+    0 0 40px rgba(226, 190, 104, 0.65),
+    0 6px 20px rgba(0, 0, 0, 0.7);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   GLASS CARDS — PROGRAM, COMPONENT, PRODUCT CARDS
+   ========================================================================== */
+
+.gold-card {
+  border: 1px solid rgba(226, 190, 104, 0.25);
+  background: rgba(14, 18, 28, 0.5);
+  backdrop-filter: blur(20px) saturate(1.3);
+  -webkit-backdrop-filter: blur(20px) saturate(1.3);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(226, 190, 104, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 0 25px rgba(226, 190, 104, 0.03);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gold-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(253, 241, 194, 0.6);
+  background: rgba(16, 20, 32, 0.6);
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.7),
+    0 0 45px rgba(226, 190, 104, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 0 30px rgba(226, 190, 104, 0.06);
+}
+
+/* Gold Chevron inside cards */
+.gold-chevron-btn {
+  background: linear-gradient(180deg, #d3a74e 0%, #f6e298 50%, #b5832a 100%);
+  border: 1px solid #ffecad;
+  box-shadow: 0 0 16px rgba(226, 190, 104, 0.3);
+  color: #1a1202;
+  transition: all 0.3s ease;
+}
+
+.gold-chevron-btn:hover {
+  filter: brightness(1.12);
+  transform: scale(1.08);
+  box-shadow: 0 0 24px rgba(226, 190, 104, 0.5);
+}
+
+/* ==========================================================================
+   GLASS FORM INPUTS
+   ========================================================================== */
+
+.form-gold-input {
+  background: rgba(10, 14, 22, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fdf1c2;
+  transition: all 0.25s ease;
+}
+
+.form-gold-input:focus {
+  outline: none;
+  border-color: rgba(202, 168, 104, 0.6);
+  box-shadow: 0 0 20px rgba(202, 168, 104, 0.15);
+  background: rgba(14, 18, 26, 0.75);
+}
+
+.form-gold-input:focus-visible,
+button:focus-visible,
+a:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #caa868;
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -48px;
+  inset-inline-start: 16px;
+  z-index: 100;
+  background: #caa868;
+  color: #000;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: top 0.2s ease;
+}
+.skip-link:focus { top: 12px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* ==========================================================================
+   GLASS OVERRIDES FOR INLINE TAILWIND CLASSES
+   ========================================================================== */
+
+/* Main app background */
+.bg-\[\#080a0b\] {
+  background: transparent !important;
+}
+
+/* Section backgrounds → frosted glass */
+.bg-\[\#101314\],
+.bg-\[\#0a0d0e\],
+.bg-\[\#121620\] {
+  background: rgba(12, 16, 26, 0.45) !important;
+  backdrop-filter: blur(20px) saturate(1.3) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.3) !important;
+}
+
+/* Card backgrounds → glass */
+.bg-\[\#14181a\],
+.bg-\[\#121617\],
+.bg-\[\#121618\],
+.bg-\[\#0e1117\] {
+  background: rgba(14, 18, 28, 0.4) !important;
+  backdrop-filter: blur(16px) saturate(1.2) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(1.2) !important;
+}
+
+/* Input/deep surfaces → frosted dark */
+.bg-\[\#090b0c\],
+.bg-\[\#0a0c0d\],
+.bg-\[\#090c0d\],
+.bg-\[\#0e111a\] {
+  background: rgba(8, 10, 18, 0.55) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* Border overrides for glass surfaces */
+.border-\[\#1a1f21\],
+.border-\[\#1e2325\],
+.border-\[\#171b1d\] {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ==========================================================================
+   WHOLE-APP GLASS LAYER — frost every solid surface, keep layout/design
+   ========================================================================== */
+
+:root {
+  --glass-bg: rgba(12, 16, 26, 0.48);
+  --glass-bg-soft: rgba(16, 20, 32, 0.38);
+  --glass-bg-deep: rgba(8, 10, 18, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.09);
+  --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --glass-gold-border: rgba(226, 190, 104, 0.32);
+}
+
+/* Sticky header → heavy frosted glass */
+header.sticky {
+  background: rgba(8, 10, 16, 0.55) !important;
+  backdrop-filter: blur(28px) saturate(1.5) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(1.5) !important;
+  border-bottom: 1px solid rgba(226, 190, 104, 0.18) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255,255,255,0.06) !important;
+}
+
+/* Modal / overlay backdrops → frosted veil */
+.fixed.inset-0.bg-black\/80,
+.fixed.inset-0.bg-black\/85 {
+  background: rgba(5, 7, 12, 0.6) !important;
+  backdrop-filter: blur(24px) saturate(1.3) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(1.3) !important;
+}
+
+/* Modal panels → glass-gold */
+.fixed.inset-0 > div[class*="bg-[#101314]"],
+.fixed.inset-0 > div[class*="bg-[#0f1214]"] {
+  background: rgba(14, 18, 28, 0.62) !important;
+  backdrop-filter: blur(32px) saturate(1.5) !important;
+  -webkit-backdrop-filter: blur(32px) saturate(1.5) !important;
+  border: 1px solid rgba(226, 190, 104, 0.3) !important;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.6),
+    0 0 50px rgba(226, 190, 104, 0.12),
+    inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+/* Remaining solid hex surfaces → glass (covers all portals/catalog) */
+.bg-\[\#0e1112\],
+.bg-\[\#0c0e10\],
+.bg-\[\#0c0f10\],
+.bg-\[\#101416\],
+.bg-\[\#111517\],
+.bg-\[\#121618\],
+.bg-\[\#13181b\],
+.bg-\[\#14181b\],
+.bg-\[\#0f1214\],
+.bg-\[\#151a1d\],
+.bg-\[\#181d20\],
+.bg-\[\#090b0d\],
+.bg-\[\#121617\],
+.bg-\[\#090b0c\],
+.bg-\[\#14181a\],
+.bg-\[\#101314\],
+.bg-\[\#0b0e0f\] {
+  backdrop-filter: blur(20px) saturate(1.35) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.35) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 10px 30px rgba(0,0,0,0.35) !important;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.bg-\[\#0e1112\] { background: rgba(14, 18, 26, 0.5) !important; }
+.bg-\[\#0c0e10\] { background: rgba(12, 15, 22, 0.52) !important; }
+.bg-\[\#0c0f10\] { background: rgba(12, 16, 22, 0.52) !important; }
+.bg-\[\#101416\] { background: rgba(15, 20, 30, 0.48) !important; }
+.bg-\[\#111517\] { background: rgba(16, 21, 31, 0.5) !important; }
+.bg-\[\#13181b\] { background: rgba(17, 22, 32, 0.52) !important; }
+.bg-\[\#14181b\] { background: rgba(18, 23, 33, 0.52) !important; }
+.bg-\[\#0f1214\] { background: rgba(14, 18, 27, 0.55) !important; }
+.bg-\[\#151a1d\] { background: rgba(19, 24, 34, 0.45) !important; }
+.bg-\[\#181d20\] { background: rgba(22, 27, 38, 0.5) !important; }
+.bg-\[\#090b0d\] { background: rgba(9, 12, 20, 0.58) !important; }
+.bg-\[\#0b0e0f\] { background: rgba(11, 14, 22, 0.45) !important; }
+
+/* Black translucent chips / countdown tiles → glass */
+.bg-black\/60 {
+  background: rgba(10, 14, 24, 0.5) !important;
+  backdrop-filter: blur(14px) saturate(1.2) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(1.2) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.07) !important;
+}
+.bg-black\/30 {
+  background: rgba(10, 14, 24, 0.32) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* Gradient hero / section / portal cards → glassy gradients (same hues, translucent) */
+.bg-gradient-to-br.from-\[\#1b1f24\],
+.bg-gradient-to-br.from-\[\#1c2225\] {
+  backdrop-filter: blur(24px) saturate(1.4) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(1.4) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 20px 50px rgba(0,0,0,0.5) !important;
+}
+div[class*="from-[#1b1f24]"] {
+  background-image: linear-gradient(135deg, rgba(27,31,36,0.55), rgba(16,19,20,0.45), rgba(10,13,14,0.5)) !important;
+  backdrop-filter: blur(24px) saturate(1.4) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(1.4) !important;
+}
+div[class*="from-[#1c2225]"] {
+  background-image: linear-gradient(135deg, rgba(28,34,37,0.55), rgba(16,19,20,0.45), rgba(8,10,11,0.5)) !important;
+  backdrop-filter: blur(24px) saturate(1.4) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(1.4) !important;
+}
+section[class*="from-[#101416]"] {
+  background-image: linear-gradient(180deg, rgba(16,20,22,0.6), rgba(11,14,15,0.45), rgba(8,10,11,0.35)) !important;
+  backdrop-filter: blur(20px) saturate(1.3) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.3) !important;
+}
+
+/* Gold footer → glassy gold (same design, frosted) */
+footer[class*="from-[#d4a03e]"] {
+  background: linear-gradient(90deg, rgba(212,160,62,0.72), rgba(229,191,101,0.68), rgba(199,148,48,0.72)) !important;
+  backdrop-filter: blur(24px) saturate(1.4) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(1.4) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), 0 -10px 35px rgba(0,0,0,0.45) !important;
+}
+
+/* Every rounded card / panel with gold border gets top glass sheen */
+div[class*="rounded-"][class*="border-brand-gold"] {
+  position: relative;
+}
+div[class*="rounded-"][class*="border-brand-gold"]::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Frosted pills, tabs, toggles */
+div[class*="bg-[#090b0c]"][class*="rounded-"],
+div[class*="bg-[#080a0b]"][class*="rounded-"] {
+  background: rgba(10, 14, 24, 0.45) !important;
+  backdrop-filter: blur(16px) saturate(1.25) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(1.25) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06) !important;
+}
+
+/* Toasts → glass */
+.fixed.bottom-6 > div {
+  background: rgba(14, 18, 28, 0.65) !important;
+  backdrop-filter: blur(24px) saturate(1.4) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(1.4) !important;
+}
+
+/* Native selects / options stay readable over glass */
+select option {
+  background: #10141f;
+  color: #fdf1c2;
+}
+
+/* Slight glass intensify on hover for interactive cards (no layout change) */
+.gold-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255,255,255,0.07), transparent 30%);
+  pointer-events: none;
+}
+
+/* Fallback when backdrop-filter unsupported */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass, .glass-subtle, .glass-heavy, .glass-gold, .gold-card {
+    background: rgba(14, 18, 28, 0.92) !important;
+  }
+}
+
+/* ==========================================================================
+   ANIMATIONS & EFFECTS
+   ========================================================================== */
+
+/* Regal Metallic Gold Text Shimmer */
+@keyframes regalShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.gold-text-animated {
+  background: linear-gradient(
+    90deg,
+    #caa868 0%,
+    #fdf1c2 25%,
+    #ffffff 50%,
+    #fdf1c2 75%,
+    #caa868 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: regalShimmer 8s ease-in-out infinite;
+}
+
+/* Staggered Hero Typography Entrance */
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.animate-hero-1 {
+  animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.08s;
+  opacity: 0;
+}
+
+.animate-hero-2 {
+  animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.22s;
+  opacity: 0;
+}
+
+.animate-hero-3 {
+  animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.36s;
+  opacity: 0;
+}
+
+.animate-hero-sub {
+  animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+.animate-hero-cta {
+  animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.65s;
+  opacity: 0;
+}
+
+/* Breathing Golden Aura Glow for Hero Primary Button */
+@keyframes auraPulse {
+  0%, 100% {
+    box-shadow: 0 0 22px rgba(226, 190, 104, 0.4), 0 4px 16px rgba(0, 0, 0, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 42px rgba(226, 190, 104, 0.75), 0 6px 24px rgba(0, 0, 0, 0.7), inset 0 0 10px rgba(255, 255, 255, 0.35);
+  }
+}
+
+.gold-glow-pulse {
+  animation: auraPulse 3.2s ease-in-out infinite;
+}
+
+/* Light sweep reflection across luxury buttons */
+.btn-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-sheen::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -70%;
+  width: 45%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transform: rotate(25deg);
+  transition: all 0.75s ease;
+  pointer-events: none;
+}
+
+.btn-sheen:hover::after {
+  left: 140%;
+}
+
+/* Theatrical Spotlight Sweep across Stage */
+@keyframes spotlightSweep {
+  0% {
+    transform: rotate(-3deg) scale(1);
+    opacity: 0.45;
+  }
+  50% {
+    transform: rotate(3deg) scale(1.05);
+    opacity: 0.7;
+  }
+  100% {
+    transform: rotate(-3deg) scale(1);
+    opacity: 0.45;
+  }
+}
+
+.theatrical-spotlight {
+  position: absolute;
+  top: -25%;
+  right: 5%;
+  width: 700px;
+  height: 1000px;
+  background: radial-gradient(
+    ellipse 65% 85% at 50% 15%,
+    rgba(255, 240, 195, 0.16) 0%,
+    rgba(226, 190, 104, 0.08) 40%,
+    transparent 75%
+  );
+  filter: blur(45px);
+  pointer-events: none;
+  animation: spotlightSweep 15s ease-in-out infinite alternate;
+  transform-origin: top center;
+  z-index: 1;
+}
+
+/* Barcode Scanner laser sweep effect */
+@keyframes laserSweep {
+  0% { top: 0%; opacity: 0.8; }
+  50% { top: 96%; opacity: 1; }
+  100% { top: 0%; opacity: 0.8; }
+}
+
+.laser-beam {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #e2be68, #fff7d6, #e2be68, transparent);
+  box-shadow: 0 0 12px #e2be68, 0 0 20px #fdf1c2;
+  animation: laserSweep 2s ease-in-out infinite;
+}
+
+/* Floating particles */
+@keyframes floatDust {
+  0% { transform: translateY(0) translateX(0) scale(1); opacity: 0.2; }
+  50% { transform: translateY(-25px) translateX(15px) scale(1.2); opacity: 0.6; }
+  100% { transform: translateY(-50px) translateX(-10px) scale(0.9); opacity: 0.15; }
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: #fdf1c2;
+  box-shadow: 0 0 8px #e2be68;
+  pointer-events: none;
+  animation: floatDust 6s ease-in-out infinite alternate;
+}
+
+/* ==========================================================================
+   CUSTOM SCROLLBAR
+   ========================================================================== */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(202, 168, 104, 0.25);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(202, 168, 104, 0.5);
+}
+
+/* ---------- Printable progress report ---------- */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #progress-report,
+  #progress-report * {
+    visibility: visible;
+  }
+  #progress-report {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff !important;
+  }
+  #progress-report .gold-card,
+  #progress-report section {
+    border-color: #ccc !important;
+    background: #fff !important;
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Étoile Ballet Academy — Family Portal",
+  "short_name": "Étoile",
+  "description": "Schedules, quotas, invoices and academy journal for Étoile families.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "lang": "en",
+  "dir": "auto",
+  "theme_color": "#080a0b",
+  "background_color": "#080a0b",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
