@@ -26,6 +26,7 @@
     "backup": "bash scripts/backup.sh",
     "backup:cron": "(crontab -l 2>/dev/null; echo '17 2 * * * cd /Users/bishoy/Desktop/Etoile && bash scripts/backup.sh 14 >> backups/cron.log 2>&1') | crontab -",
     "nightly": "npm --prefix server run cron:nightly",
+    "tunnel:quick": "bash scripts/quick-tunnel.sh",
     "install:all": "npm install && npm --prefix client install && npm --prefix admin install && npm --prefix server install"
   },
   "devDependencies": {

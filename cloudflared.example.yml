@@ -1,0 +1,45 @@
+# ==============================================================================
+# 🩰 Étoile Cloudflare Tunnel Configuration (Ingress Rules)
+# Location: ~/.cloudflared/config.yml  or  /etc/cloudflared/config.yml
+# ==============================================================================
+
+# 1. Your Tunnel UUID or Tunnel Name (obtained from: cloudflared tunnel create <NAME>)
+tunnel: <TUNNEL_UUID_OR_NAME>
+
+# 2. Path to the credentials JSON file generated during tunnel creation
+credentials-file: /Users/bishoy/.cloudflared/<TUNNEL_UUID>.json
+
+# 3. Recommended Origin Request settings for reliability & WebSockets
+originRequest:
+  connectTimeout: 30s
+  noTLSVerify: false
+  keepAliveConnections: 100
+  tcpKeepAlive: 30s
+
+# 4. Ingress Rules (Evaluated in sequential order from top to bottom)
+ingress:
+  # Option A: Exact ports requested in prompt (3000 for Client, 3001 for Admin)
+  # - hostname: app.mydomain.com
+  #   service: http://localhost:3000
+  # - hostname: admin.mydomain.com
+  #   service: http://localhost:3001
+
+  # Option B: Actual ports configured in this Étoile repository:
+  # Route 1: Client Portal (React / Vite) -> Port 5173
+  - hostname: app.mydomain.com
+    service: http://localhost:5173
+    originRequest:
+      httpHostHeader: app.mydomain.com
+
+  # Route 2: Admin ERP & Dashboard (React / Vite) -> Port 5174
+  - hostname: admin.mydomain.com
+    service: http://localhost:5174
+    originRequest:
+      httpHostHeader: admin.mydomain.com
+
+  # (Optional) Route 3: Direct NestJS API Engine -> Port 3001
+  # - hostname: api.mydomain.com
+  #   service: http://localhost:3001
+
+  # Catch-all fallback rule (Mandatory for Cloudflare Ingress)
+  - service: http_status:404
